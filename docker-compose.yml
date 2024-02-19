@@ -3,12 +3,12 @@ services:
     db:
         image: mysql
         ports: 
-            - "3306:3306"
+            - 3306:3306
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_DATABASE: dbname
-            MYSQL_PASSWORD: test
-            MYSQL_ROOT_PASSWORD: test 
+            MYSQL_PASSWORD: proyecto
+            MYSQL_ROOT_PASSWORD: proyecto2024 
         volumes:
             - ./dump:/docker-entrypoint-initdb.d
             - ./conf:/etc/mysql/conf.d
@@ -18,7 +18,9 @@ services:
     www:
         build: .
         ports: 
-            - "80:80"
+            - 80:80
+            - 81:81
+            - 443:443
         volumes:
             - ./www:/var/www/html
         links:
@@ -30,10 +32,10 @@ services:
         links: 
             - db:db
         ports:
-            - 8000:80
+            - 8001:80
         environment:
-            MYSQL_USER: root
-            MYSQL_PASSWORD: test
-            MYSQL_ROOT_PASSWORD: test 
+            MYSQL_USER: proyecto
+            MYSQL_PASSWORD: proyecto
+            MYSQL_ROOT_PASSWORD: proyecto2024 
 volumes:
     persistent:
