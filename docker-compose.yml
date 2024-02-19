@@ -6,6 +6,7 @@ services:
             - 3306:3306
         environment:
             MYSQL_DATABASE: dbname
+            MYSQL_USER: root
             MYSQL_PASSWORD: proyecto
             MYSQL_ROOT_PASSWORD: proyecto2024 
         volumes:
@@ -33,7 +34,7 @@ services:
         ports:
             - 8001:80
         environment:
-            MYSQL_USER: proyecto
+            MYSQL_USER: root
             MYSQL_PASSWORD: proyecto
             MYSQL_ROOT_PASSWORD: proyecto2024 
 volumes:
